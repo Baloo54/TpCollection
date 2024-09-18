@@ -1,0 +1,35 @@
+@startuml
+
+participant "ge : GroupeEtudiant" as ge
+participant "f : Formation" as f
+participant "e : Etudiant" as e
+
+activate ge
+ge -> f : matieres.keyset()
+activate f
+f --> ge : set<matieres>
+loop 
+    ge -> f : matieres.getkey(matiere)
+    f -> e : resultat.getkey(matiere)
+    activate e
+    e --> f : double
+    f --> ge : double
+end
+@enduml
+
+@startuml
+participant "ge : GroupeEtudiant" as ge
+participant "f : Formation" as f
+
+participant "e : Etudiant" as e
+activate ge 
+ge -> f : matieres.getkey(matiere)
+activate f
+f --> ge : double
+activate e
+loop pour charque Etudiant
+    ge -> e : resultat.getkey(matiere)
+    e --> ge : double
+end
+
+@enduml

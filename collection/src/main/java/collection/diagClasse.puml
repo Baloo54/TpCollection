@@ -1,0 +1,32 @@
+@startuml
+class Etudiant {
+    - resultat : Map<Matiere, double[]>
+}
+
+class Matiere {
+    - nom : String
+}
+
+class Identite {
+    - NIP : int
+    - Nom : String
+    - Prenom : String
+}
+
+class Formation {
+    - identifiant : String
+    - matieres : Map<Matiere, double>
+}
+
+class GroupeEtudiant {
+    - etudiants : Set<Etudiant>
+}
+
+Etudiant "1" -> "1" Identite
+Etudiant "1" -> "1..*" Matiere
+Formation "1" -> "1..*" Matiere
+Formation "1" <- "1" GroupeEtudiant
+GroupeEtudiant "1" -> "1..*" Etudiant
+
+
+@enduml
