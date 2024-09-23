@@ -8,6 +8,7 @@ class Etudiant {
 
 class Matiere {
     - nom : String
+    + getNom() : String
 }
 
 class Identite {
@@ -19,6 +20,11 @@ class Identite {
 class Formation {
     - identifiant : String
     - matieres : Map<Matiere, double>
+    + Formation(String identifiant, Map<Matiere, double> matieres)
+    + Get identifiant() : String
+    + GetCoefficient(String matiere) : double
+    + RemoveMatiere(String matiere) : void
+    + AddMatiere(String matiere, double coefficient) : void
 }
 
 class GroupeEtudiant {
@@ -31,6 +37,7 @@ Etudiant "1" --> "1..*" Matiere
 Etudiant "1" --> "1" Formation
 Formation "1" --> "1..*" Matiere
 Formation "1" <-- "1" GroupeEtudiant
+Etudiant "1" --> "1" GroupeEtudiant
 GroupeEtudiant "1" --> "1..*" Etudiant
 
 
