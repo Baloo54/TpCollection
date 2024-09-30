@@ -17,13 +17,6 @@ public class FormationTest {
             formation.AddMatiere(new Matiere("1"), -1.00);
         });
     }
-    void testAddMatiereMatiereExistException() {
-        Formation formation = new Formation("1");
-        formation.AddMatiere(new Matiere("1"), 0.5);
-        assertThrows(IllegalArgumentException.class, () -> {
-            formation.AddMatiere(new Matiere("2"), 0.5);
-        });
-    }
     @Test
     void testRemoveMatiere() {
         Formation formation = new Formation("1");

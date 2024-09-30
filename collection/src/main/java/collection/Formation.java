@@ -1,4 +1,5 @@
 package collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 /**
@@ -15,6 +16,7 @@ public class Formation {
      */
     public Formation(String identifiant) {
         this.identifiant = identifiant;
+        matieres = new HashMap<Matiere,Double>();
     }
     /**
      * getter identifiant.
@@ -42,10 +44,7 @@ public class Formation {
     public void AddMatiere(Matiere matiere, Double coefficient) {
         if(coefficient < 0) {
             throw new IllegalArgumentException("Le coefficient doit être compris entre 0 et 1");
-        }if (matieres.containsKey(matiere)) {
-            throw new IllegalArgumentException("La matière existe déjà dans la map");
-        }
-        matieres.put(matiere, coefficient);
+        }matieres.put(matiere, coefficient);
          
     }
     /**
