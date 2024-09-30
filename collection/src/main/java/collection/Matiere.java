@@ -19,4 +19,21 @@ public class Matiere {
     public String getNom() {
         return nom;
     }   
+    /**
+     * equals.
+     */
+    public boolean equals(Object obj) {
+        boolean result = false;
+        if (obj instanceof Matiere) {
+            Matiere mat = (Matiere) obj;
+            result = this.nom.equals(mat.getNom());
+        }
+        return result;
+    }
+    /**
+     * hashcode.
+     */
+    public int hashCode() {
+        return nom.hashCode();
+    }    
 }

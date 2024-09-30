@@ -9,12 +9,17 @@ class Etudiant {
 class Matiere {
     - nom : String
     + getNom() : String
+    + equals() : boolean
+    + hashCode() : int
 }
 
 class Identite {
     - NIP : int
     - Nom : String
     - Prenom : String
+    + getNom() : String
+    + getPrenom() : String
+    + getNIP() : int
 }
 
 class Formation {
