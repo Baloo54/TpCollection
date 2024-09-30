@@ -13,9 +13,8 @@ public class Formation {
     /**
      * constructeur.
      */
-    public Formation(String identifiant, Map<Matiere, Double> matieres) {
+    public Formation(String identifiant) {
         this.identifiant = identifiant;
-        this.matieres = matieres;
     }
     /**
      * getter identifiant.
@@ -41,7 +40,13 @@ public class Formation {
      * si coefficient est en dehors de l'intervalle [0, 1], renvoie une exception
      */
     public void AddMatiere(Matiere matiere, Double coefficient) {
+        if(coefficient < 0) {
+            throw new IllegalArgumentException("Le coefficient doit être compris entre 0 et 1");
+        }if (matieres.containsKey(matiere)) {
+            throw new IllegalArgumentException("La matière existe déjà dans la map");
+        }
         matieres.put(matiere, coefficient);
+         
     }
     /**
      * supprimerMatiere
@@ -49,7 +54,11 @@ public class Formation {
      * si matiere n'existe pas dans la map, renvoie une exception
      */
     public void RemoveMatiere(Matiere matiere) {
-        matieres.remove(matiere);
+        if (!matieres.containsKey(matiere)) {
+            throw new IllegalArgumentException("La matière n'existe pas dans la map");
+        } else {
+            matieres.remove(matiere);
+        }
     }
     /**
      * listerMatieres
